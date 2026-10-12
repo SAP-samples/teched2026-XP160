@@ -67,7 +67,7 @@ Your team has received an urgent advisory from NORDIC-CERT. Review it carefully 
 
 Your fictional client is **RetailNordic GmbH**, a mid-size multi-country retailer running SAP S/4HANA 2022 on SAP BTP. The client brief describes their system landscape, team structure, and existing security controls.
 
-📄 **[Download Client Brief (PDF)](docs/client-brief.pdf)** *(provided by your facilitator)*
+📄 **[Download Client Brief (PDF)](docs/GlobalRetail4U_Client_Profile.pdf)**
 
 ### Step 3 — Access the TTXGenAI Tool
 
