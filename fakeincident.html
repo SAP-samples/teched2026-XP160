@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORDIC-CERT Advisory 2024-001 | NorthernStorm Campaign</title>
+    <link rel="stylesheet" href="css/cert-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="cert-header">
+        <div class="container">
+            <div class="logo-section">
+                <div class="cert-logo">🛡️ NORDIC-CERT</div>
+                <div class="tagline">Computer Emergency Response Team - Nordic Region</div>
+            </div>
+            <nav class="header-nav">
+                <a href="#overview">Overview</a>
+                <a href="#technical">Technical Details</a>
+                <a href="#iocs">IoCs</a>
+                <a href="#recommendations">Recommendations</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Alert Banner -->
+        <div class="alert-banner critical">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-content">
+                <div class="alert-title">CRITICAL ALERT - ACTIVE CAMPAIGN</div>
+                <div class="alert-subtitle">Ransomware Group "NorthernStorm" Targeting Nordic Retail Sector</div>
+            </div>
+            <div class="alert-meta">
+                <div class="alert-id">Advisory ID: <strong>NCERT-2024-001</strong></div>
+                <div class="alert-date">Published: January 16, 2024 09:00 CET</div>
+                <div class="alert-updated">Last Updated: January 16, 2024 14:30 CET</div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Confirmed Victims</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">48h</div>
+                <div class="stat-label">Campaign Duration</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">HIGH</div>
+                <div class="stat-label">Threat Level</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Retail</div>
+                <div class="stat-label">Target Sector</div>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <section id="overview" class="content-section">
+            <h1>Executive Summary</h1>
+
+            <div class="summary-box">
+                <p class="lead">NORDIC-CERT has identified an active ransomware campaign targeting retail and e-commerce organizations in the Nordic region. The threat actor, identified as <strong>"NorthernStorm"</strong>, has successfully compromised three organizations running SAP S/4HANA systems in the past 48 hours.</p>
+            </div>
+
+            <h2>Affected Organizations</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker incident"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Monday, January 15, 2024 - 14:00 CET</div>
+                        <div class="timeline-title">RetailHub A/S (Denmark)</div>
+                        <div class="timeline-description">
+                            <strong>Industry:</strong> E-commerce/Electronics Retail<br>
+                            <strong>Systems Affected:</strong> SAP S/4HANA 2021, SAP Fiori, Gateway<br>
+                            <strong>Impact:</strong> Complete system encryption, 12-hour outage<br>
+                            <strong>Ransom Demand:</strong> 100,000 EUR (Bitcoin)<br>
+                            <strong>Status:</strong> Systems restored from backup (48-hour recovery)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker incident"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Tuesday, January 16, 2024 - 06:00 CET</div>
+                        <div class="timeline-title">ShopNordic AS (Norway)</div>
+                        <div class="timeline-description">
+                            <strong>Industry:</strong> Fashion/Apparel Retail<br>
+                            <strong>Systems Affected:</strong> SAP S/4HANA 2022, SAP HANA DB, Backup Infrastructure<br>
+                            <strong>Impact:</strong> Production and backup systems encrypted<br>
+                            <strong>Ransom Demand:</strong> 150,000 EUR (Bitcoin)<br>
+                            <strong>Data Exfiltration:</strong> Confirmed - 87 GB customer and financial data<br>
+                            <strong>Status:</strong> Currently offline, negotiating recovery options
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker incident"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Tuesday, January 16, 2024 - 08:00 CET</div>
+                        <div class="timeline-title">BuyItNow AB (Sweden)</div>
+                        <div class="timeline-description">
+                            <strong>Industry:</strong> Multi-Category E-commerce<br>
+                            <strong>Systems Affected:</strong> SAP S/4HANA 2020, SAP Gateway, Fiori Launchpad<br>
+                            <strong>Impact:</strong> Partial encryption (40% of database tables)<br>
+                            <strong>Ransom Demand:</strong> 200,000 EUR (Bitcoin)<br>
+                            <strong>Data Exfiltration:</strong> Suspected - under investigation<br>
+                            <strong>Status:</strong> Emergency incident response in progress
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Active Campaign Warning:</strong> Based on the geographic and temporal pattern, NORDIC-CERT assesses with HIGH CONFIDENCE that additional attacks are imminent. Organizations in Finland, Iceland, and remaining Scandinavian countries are at elevated risk.
+            </div>
+        </section>
+
+        <!-- Technical Analysis -->
+        <section id="technical" class="content-section">
+            <h1>Technical Analysis</h1>
+
+            <h2>Attack Vector &amp; Initial Access</h2>
+            <div class="technical-details">
+                <h3>Primary Entry Point</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Vulnerability</div>
+                        <div class="detail-value">CVE-2024-0847 (SAP Gateway Remote Code Execution)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">CVSS Score</div>
+                        <div class="detail-value critical-text">9.8 (Critical)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Affected Versions</div>
+                        <div class="detail-value">SAP Gateway 7.5, 7.53, 7.54 (unpatched)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Patch Available</div>
+                        <div class="detail-value">Yes - SAP Security Note 3411067 (Dec 2023)</div>
+                    </div>
+                </div>
+
+                <h3>Secondary Access Method</h3>
+                <p>In addition to the SAP Gateway vulnerability, the threat actor utilized stolen VPN credentials obtained through previous phishing campaigns. Analysis of artifacts suggests credentials were harvested 2-3 weeks prior to the attacks.</p>
+
+                <div class="code-block">
+                    <div class="code-header">Observed Credential Patterns</div>
+                    <pre>VPN Username Format: firstname.lastname@company.com
+Authentication: RADIUS (no MFA detected on victim networks)
+VPN Solution: FortiClient, Cisco AnyConnect
+Access Hours: 22:00-05:00 CET (outside business hours)</pre>
+                </div>
+            </div>
+
+            <h2>Attack Timeline &amp; TTPs</h2>
+            <div class="ttp-grid">
+                <div class="ttp-phase">
+                    <div class="phase-header">Phase 1: Initial Access</div>
+                    <div class="phase-time">Day 0 (Hour 0-2)</div>
+                    <ul class="ttp-list">
+                        <li><strong>T1190:</strong> Exploit Public-Facing Application (SAP Gateway)</li>
+                        <li><strong>T1078:</strong> Valid Accounts (Stolen VPN credentials)</li>
+                        <li>Establishment of reverse shell connection</li>
+                        <li>Deployment of persistence mechanism (SAP RFC backdoor)</li>
+                    </ul>
+                </div>
+
+                <div class="ttp-phase">
+                    <div class="phase-header">Phase 2: Reconnaissance</div>
+                    <div class="phase-time">Day 0-1 (Hour 2-24)</div>
+                    <ul class="ttp-list">
+                        <li><strong>T1087:</strong> Account Discovery (SU01 enumeration)</li>
+                        <li><strong>T1083:</strong> File and Directory Discovery</li>
+                        <li><strong>T1046:</strong> Network Service Scanning</li>
+                        <li>Mapping of SAP landscape (systems, databases, backup infrastructure)</li>
+                        <li>Identification of high-value data tables</li>
+                    </ul>
+                </div>
+
+                <div class="ttp-phase">
+                    <div class="phase-header">Phase 3: Privilege Escalation</div>
+                    <div class="phase-time">Day 1-2 (Hour 24-48)</div>
+                    <ul class="ttp-list">
+                        <li><strong>T1078.003:</strong> Creation of SAP administrative accounts</li>
+                        <li>Username patterns: "SAP_SUPPORT_TEMP", "BASIS_ADMIN_02"</li>
+                        <li>Assignment of SAP_ALL profile</li>
+                        <li>Reactivation of dormant privileged accounts</li>
+                    </ul>
+                </div>
+
+                <div class="ttp-phase">
+                    <div class="phase-header">Phase 4: Lateral Movement</div>
+                    <div class="phase-time">Day 2-3 (Hour 48-72)</div>
+                    <ul class="ttp-list">
+                        <li><strong>T1021.004:</strong> Remote Services (SAP RFC)</li>
+                        <li>Movement from application layer to database layer</li>
+                        <li>Access to SAP HANA database servers</li>
+                        <li>Compromise of backup systems (NetBackup, Veeam)</li>
+                    </ul>
+                </div>
+
+                <div class="ttp-phase">
+                    <div class="phase-header">Phase 5: Data Exfiltration</div>
+                    <div class="phase-time">Day 3-4 (Hour 72-96)</div>
+                    <ul class="ttp-list">
+                        <li><strong>T1567.002:</strong> Exfiltration to Cloud Storage</li>
+                        <li>Destinations: mega.nz, anonfiles.com</li>
+                        <li>Data volume: 45-87 GB per victim</li>
+                        <li>Exfiltration timing: 23:00-04:00 CET (off-hours)</li>
+                        <li>Tables targeted: KNA1, LFA1, BSEG, USR02</li>
+                    </ul>
+                </div>
+
+                <div class="ttp-phase">
+                    <div class="phase-header">Phase 6: Encryption</div>
+                    <div class="phase-time">Day 4-5 (Hour 96-120)</div>
+                    <ul class="ttp-list">
+                        <li><strong>T1486:</strong> Data Encrypted for Impact</li>
+                        <li>Ransomware variant: Custom (likely LockBit 3.0 derivative)</li>
+                        <li>File extension: .locked or .nstorm</li>
+                        <li>Encryption speed: ~500 GB/hour</li>
+                        <li>Ransom note: RESTORE_YOUR_FILES.txt</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <strong>🔍 Analyst Insight:</strong> The 4-5 day dwell time between initial access and encryption deployment is consistent with professional ransomware operators conducting thorough reconnaissance. This patience increases impact by ensuring backup systems are compromised before encryption begins.
+            </div>
+        </section>
+
+        <!-- Indicators of Compromise -->
+        <section id="iocs" class="content-section">
+            <h1>Indicators of Compromise (IoCs)</h1>
+
+            <div class="ioc-warning">
+                <strong>Note:</strong> Organizations should search logs and systems for the following indicators. Presence of ANY indicator warrants immediate investigation.
+            </div>
+
+            <h2>Network Indicators</h2>
+            <table class="ioc-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Indicator</th>
+                        <th>Description</th>
+                        <th>First Seen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="ioc-badge ip">IP Address</span></td>
+                        <td><code>185.220.101.47</code></td>
+                        <td>Command &amp; Control server (Romania)</td>
+                        <td>2024-01-10</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge ip">IP Address</span></td>
+                        <td><code>45.142.214.89</code></td>
+                        <td>Data exfiltration destination (Netherlands)</td>
+                        <td>2024-01-12</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge ip">IP Address</span></td>
+                        <td><code>23.95.67.134</code></td>
+                        <td>Secondary C2 server (United States)</td>
+                        <td>2024-01-14</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge domain">Domain</span></td>
+                        <td><code>sap-update-service[.]com</code></td>
+                        <td>Phishing domain (credential harvesting)</td>
+                        <td>2024-01-05</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge domain">Domain</span></td>
+                        <td><code>northdata-backup[.]net</code></td>
+                        <td>Data staging/exfiltration</td>
+                        <td>2024-01-11</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge url">URL</span></td>
+                        <td><code>hxxps://mega[.]nz/folder/Xy7R2JbK</code></td>
+                        <td>Exfiltrated data storage</td>
+                        <td>2024-01-13</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>SAP-Specific Indicators</h2>
+            <table class="ioc-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Indicator</th>
+                        <th>Description</th>
+                        <th>Detection Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="ioc-badge user">Username</span></td>
+                        <td><code>SAP_SUPPORT_TEMP</code></td>
+                        <td>Malicious admin account</td>
+                        <td>Transaction: SU01</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge user">Username</span></td>
+                        <td><code>BASIS_ADMIN_02</code></td>
+                        <td>Unauthorized privileged account</td>
+                        <td>Transaction: SU01</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge user">Username</span></td>
+                        <td><code>EMERGENCY_ACCESS</code></td>
+                        <td>Backdoor account with SAP_ALL</td>
+                        <td>Transaction: SU01</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge rfc">RFC Connection</span></td>
+                        <td><code>Z_REMOTE_CONN_01</code></td>
+                        <td>Malicious RFC destination</td>
+                        <td>Transaction: SM59</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge file">File Path</span></td>
+                        <td><code>/usr/sap/trans/tmp/.system32</code></td>
+                        <td>Hidden malware staging directory</td>
+                        <td>OS-level file system scan</td>
+                    </tr>
+                    <tr>
+                        <td><span class="ioc-badge process">Process</span></td>
+                        <td><code>sapstartsrv_backup.exe</code></td>
+                        <td>Renamed malicious executable</td>
+                        <td>Process monitoring (ps, tasklist)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>File Hashes (Malware Samples)</h2>
+            <div class="hash-section">
+                <div class="hash-item">
+                    <div class="hash-label">SHA256:</div>
+                    <div class="hash-value"><code>a7f8e4c9b2d1f6e3a5c8b9d2e4f7a1c3b5d8e2f4a6c9b1d3e5f8a2c4b6d9e1f3</code></div>
+                    <div class="hash-desc">Ransomware payload (nstorm_encryptor.exe)</div>
+                </div>
+                <div class="hash-item">
+                    <div class="hash-label">SHA256:</div>
+                    <div class="hash-value"><code>b3e7f2a8c5d9e1f4a6c8b2d5e7f9a1c4b6d8e3f5a7c9b1d4e6f8a3c5b7d9e2f4</code></div>
+                    <div class="hash-desc">Data exfiltration tool (nordex.dll)</div>
+                </div>
+                <div class="hash-item">
+                    <div class="hash-label">MD5:</div>
+                    <div class="hash-value"><code>e4f6a8c2b5d7e9f1a3c5b7d9e2f4a6c8</code></div>
+                    <div class="hash-desc">PowerShell credential stealer</div>
+                </div>
+            </div>
+
+            <h2>YARA Rules</h2>
+            <div class="code-block">
+                <div class="code-header">Detection Rule: NorthernStorm Ransomware</div>
+                <pre>rule NorthernStorm_Ransomware {
+    meta:
+        description = "Detects NorthernStorm ransomware variant"
+        author = "NORDIC-CERT"
+        date = "2024-01-16"
+        hash = "a7f8e4c9b2d1f6e3a5c8b9d2e4f7a1c3b5d8e2f4a6c9b1d3e5f8a2c4b6d9e1f3"
+
+    strings:
+        $s1 = "RESTORE_YOUR_FILES.txt" ascii wide
+        $s2 = "NorthernStorm" ascii wide
+        $s3 = ".locked" ascii wide
+        $s4 = "Your files have been encrypted" ascii wide
+        $hex1 = { 4D 5A 90 00 03 00 00 00 04 00 00 00 FF FF }
+        $hex2 = { 89 E5 83 EC 40 48 89 4D F0 }
+
+    condition:
+        uint16(0) == 0x5A4D and
+        filesize &lt; 5MB and
+        3 of ($s*) and 1 of ($hex*)
+}
+
+rule NorthernStorm_SAP_Backdoor {
+    meta:
+        description = "Detects SAP RFC backdoor used by NorthernStorm"
+        author = "NORDIC-CERT"
+        date = "2024-01-16"
+
+    strings:
+        $sap1 = "SAP_SUPPORT_TEMP" ascii wide
+        $sap2 = "Z_REMOTE_CONN" ascii wide
+        $sap3 = "BASIS_ADMIN" ascii wide
+        $func1 = "RFC_SYSTEM_INFO" ascii
+        $func2 = "SXPG_COMMAND_EXECUTE" ascii
+
+    condition:
+        2 of ($sap*) and 1 of ($func*)
+}</pre>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section id="recommendations" class="content-section">
+            <h1>Recommendations &amp; Mitigation</h1>
+
+            <div class="priority-grid">
+                <div class="priority-card critical">
+                    <div class="priority-header">
+                        <span class="priority-icon">🚨</span>
+                        <span class="priority-title">IMMEDIATE ACTIONS</span>
+                        <span class="priority-time">(Next 24 Hours)</span>
+                    </div>
+                    <ol class="action-list">
+                        <li>
+                            <strong>Apply SAP Security Patch</strong>
+                            <p>Install SAP Security Note 3411067 to remediate CVE-2024-0847 on ALL SAP Gateway instances. Verify patch level using transaction SYSTEM → Status.</p>
+                            <div class="code-inline">SPAM/SAINT → Load Support Packages → SAPKB75054</div>
+                        </li>
+                        <li>
+                            <strong>Audit SAP Administrative Accounts</strong>
+                            <p>Review all accounts with SAP_ALL or SAP_NEW profiles using SU01. Disable any unrecognized accounts immediately.</p>
+                            <div class="code-inline">SE16 → USR02 → Filter: PROFN = 'SAP_ALL'</div>
+                        </li>
+                        <li>
+                            <strong>Review RFC Connections</strong>
+                            <p>Check for unauthorized remote connections using SM59. Delete any suspicious RFC destinations, especially those created in the last 30 days.</p>
+                        </li>
+                        <li>
+                            <strong>Enable MFA on VPN</strong>
+                            <p>If not already enabled, enforce multi-factor authentication for all VPN access immediately. Reset all VPN passwords.</p>
+                        </li>
+                        <li>
+                            <strong>Search Logs for IoCs</strong>
+                            <p>Query firewall, SAP security audit logs (SM20), and SIEM for the IP addresses and domains listed in the IoC section.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="priority-card high">
+                    <div class="priority-header">
+                        <span class="priority-icon">⚠️</span>
+                        <span class="priority-title">SHORT-TERM ACTIONS</span>
+                        <span class="priority-time">(Next 7 Days)</span>
+                    </div>
+                    <ol class="action-list">
+                        <li>
+                            <strong>Conduct Security Audit</strong>
+                            <p>Perform comprehensive SAP security assessment focusing on dormant/orphaned accounts, accounts with unchanged passwords &gt;90 days, overly permissive role assignments, and unencrypted RFC connections.</p>
+                        </li>
+                        <li>
+                            <strong>Implement Network Segmentation</strong>
+                            <p>Isolate SAP landscape from general corporate network. Implement firewall rules restricting SAP Gateway access to known IP ranges only.</p>
+                        </li>
+                        <li>
+                            <strong>Backup Verification</strong>
+                            <p>Test restoration from backups. Ensure backup infrastructure is isolated from production network and cannot be accessed via compromised SAP accounts.</p>
+                        </li>
+                        <li>
+                            <strong>Enable Enhanced Logging</strong>
+                            <p>Configure SAP Security Audit Log (RSAU_CONFIG) to capture all RFC calls, user administration changes, critical transaction execution, and failed login attempts (&gt;3 per hour).</p>
+                        </li>
+                        <li>
+                            <strong>Incident Response Planning</strong>
+                            <p>Update IR playbooks to include SAP-specific procedures. Conduct tabletop exercise simulating this attack scenario.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="priority-card medium">
+                    <div class="priority-header">
+                        <span class="priority-icon">📋</span>
+                        <span class="priority-title">STRATEGIC ACTIONS</span>
+                        <span class="priority-time">(Next 30 Days)</span>
+                    </div>
+                    <ol class="action-list">
+                        <li>
+                            <strong>Deploy SAP-Aware Security Monitoring</strong>
+                            <p>Implement solutions capable of detecting SAP-specific attack patterns (e.g., Onapsis, SecurityBridge, or native SAP Enterprise Threat Detection).</p>
+                        </li>
+                        <li>
+                            <strong>Establish Threat Intelligence Sharing</strong>
+                            <p>Join industry ISACs and information sharing groups (FS-ISAC, Retail Cyber Intelligence Sharing Center).</p>
+                        </li>
+                        <li>
+                            <strong>Security Awareness Training</strong>
+                            <p>Conduct phishing simulation campaigns focusing on SAP-themed lures ("Security Patch Required", "System Maintenance").</p>
+                        </li>
+                        <li>
+                            <strong>Third-Party Risk Assessment</strong>
+                            <p>Audit all vendors with RFC or VPN access to SAP systems. Implement least-privilege access principles.</p>
+                        </li>
+                        <li>
+                            <strong>Cyber Insurance Review</strong>
+                            <p>Verify coverage for ransomware incidents, data exfiltration, and business interruption. Ensure compliance with policy security requirements.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>Detection Queries</h2>
+            <div class="query-section">
+                <h3>SAP Security Audit Log (SM20/SM21)</h3>
+                <div class="code-block">
+                    <div class="code-header">Query: Suspicious RFC Activity</div>
+                    <pre>SELECT * FROM RSAUPROF
+WHERE
+    TCODE IN ('SM59', 'RFC1', 'SM69')
+    AND MANDT = '100'
+    AND DATUM >= '20240101'
+    AND UZEIT BETWEEN '220000' AND '050000'
+    AND TERMINAL NOT IN (SELECT TERMINAL FROM KNOWN_ADMIN_IPS)
+ORDER BY DATUM DESC, UZEIT DESC;</pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">Query: New Administrative Accounts</div>
+                    <pre>SELECT BNAME, ERDAT, UFLAG, CLASS
+FROM USR02
+WHERE
+    ERDAT >= '20240101'
+    AND (BNAME LIKE '%TEMP%' OR BNAME LIKE '%ADMIN%' OR BNAME LIKE '%SUPPORT%')
+    AND EXISTS (
+        SELECT 1 FROM AGR_USERS
+        WHERE USR02.BNAME = AGR_USERS.UNAME
+        AND AGR_USERS.AGR_NAME = 'SAP_ALL'
+    );</pre>
+                </div>
+            </div>
+
+            <div class="query-section">
+                <h3>Splunk SPL Queries</h3>
+                <div class="code-block">
+                    <div class="code-header">Query: Network Connections to Known IoCs</div>
+                    <pre>index=firewall OR index=proxy
+| search dest_ip IN ("185.220.101.47", "45.142.214.89", "23.95.67.134")
+    OR dest_domain IN ("*sap-update-service.com*", "*northdata-backup.net*")
+| stats count by src_ip, dest_ip, dest_domain, dest_port
+| where count > 1
+| sort - count</pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">Query: Off-Hours Large Data Transfers</div>
+                    <pre>index=netflow
+| eval hour=strftime(_time, "%H")
+| where (hour >= 22 OR hour <= 5)
+| stats sum(bytes) as total_bytes by src_ip, dest_ip
+| where total_bytes > 1073741824
+| eval total_gb=round(total_bytes/1073741824, 2)
+| sort - total_gb
+| table src_ip, dest_ip, total_gb</pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="cert-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="cert-logo small">🛡️ NORDIC-CERT</div>
+                    <p>Computer Emergency Response Team - Nordic Region</p>
+                </div>
+                <div class="footer-meta">
+                    <p><strong>Advisory ID:</strong> NCERT-2024-001</p>
+                    <p><strong>TLP:</strong> <span class="tlp-amber">AMBER</span> — Share with sector peers only</p>
+                    <p><strong>Classification:</strong> RESTRICTED</p>
+                </div>
+                <div class="footer-contact">
+                    <p><strong>Report incidents:</strong> incident@nordic-cert.eu</p>
+                    <p><strong>Hotline:</strong> +47 800 CERT-NO</p>
+                    <p style="font-size:0.75rem; color:#999; margin-top:0.5rem;">This is a fictional advisory created for training purposes.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
