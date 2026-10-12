@@ -59,7 +59,7 @@ Complete these four steps **before** the workshop begins.
 
 Your team has received an urgent advisory from NORDIC-CERT. Review it carefully before the exercise begins — it contains the threat intelligence your team will be working with.
 
-**[View the NORDIC-CERT Advisory — NorthernStorm Campaign](https://sap-samples.github.io/teched2026-XP160/fakeincident.html)**
+**[View the NORDIC-CERT Advisory — NorthernStorm Campaign](fakeincident.md)**
 
 > The advisory covers: attack timeline across three victim organizations, 6-phase TTP breakdown (MITRE ATT&CK mapped), Indicators of Compromise (IP addresses, SAP usernames, file hashes, YARA rules), and recommended immediate actions.
 
