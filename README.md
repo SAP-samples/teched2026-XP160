@@ -77,7 +77,9 @@ Open the exercise generator in your browser:
 https://ttxgenai.cfapps.eu10-005.hana.ondemand.com
 ```
 
+### Step 4  — Powerpoint slides
 
+📄 **[Presentation Slides (pptx)](/teched2026-XP160.pptx)**
 
 ---
 
