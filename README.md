@@ -27,7 +27,7 @@ This workshop puts you in the seat of a security responder during an active rans
 <td width="33%" valign="top">
 
 ### Scenario Overview
-A fictitious NORDIC-CERT advisory has alerted Nordic retail organizations to an active ransomware campaign exploiting an SAP Gateway vulnerability. Your team must detect, contain, and recover — following the incident-response phases of your chosen framework (NIST / ISO 27001 / SAP SIRT).
+A fictitious NORDIC-CERT advisory has alerted Nordic retail organizations to an active ransomware campaign exploiting an SAP Gateway vulnerability. Your team must be ready to detect, contain, and recover — following the incident-response phases of your chosen framework (NIST / ISO 27001 / SAP SIRT).
 
 </td>
 <td width="33%" valign="top">
@@ -88,7 +88,7 @@ https://ttxgenai.cfapps.eu10-005.hana.ondemand.com
   0:00        0:10         0:40                    0:50          1:00
    │           │            │                       │             │
    ▼           ▼            ▼                       ▼             ▼
-[Briefing] [Generate] [Discuss & Report] ──────── [Debrief]   [Wrap-up]
+[Briefing] [Generate] [Evaluate & Report] ──────── [Debrief]   [Wrap-up]
 ```
 
 ### Phase 1 — Introduction & Demo (0:00 – 0:10)
@@ -99,19 +99,22 @@ https://ttxgenai.cfapps.eu10-005.hana.ondemand.com
 
 ### Phase 2 — Inject Evaluation (0:10 – 0:40)
 
-This is the core exercise phase. Teams work through **8 timed injects**, each representing a decision point in the incident response. For each inject:
+This is the core exercise phase. Today, you're stepping into the role of a security consultant using TTXGenAI to deliver rapid incident response training to a client. You'll learn how to transform threat intelligence from real-world incidents into actionable tabletop exercises in **minutes**, **not weeks**. You need to understand the customer profile, the threat and configure accordingly the exercise to be generated and executed.
 
-1. Read the situation update out loud to your team
-2. Discuss what your team would do — reference the client brief and your chosen IR framework
-3. Select **Success** or **Fail** based on whether your team's response matches best practice
-4. Add a comment explaining your decision (required for the final report)
-5. Click **Submit** to move to the next inject
+1. From the security bulletin published by the CERT organisation **[View the NORDIC-CERT Advisory — NorthernStorm Campaign](fakeincident.md)** create a .docx or .txt file containing all the report. Save this file locally and name it with a mention to your identifier/pseudo/name.
+2. Open the tool https://ttxgenai.cfapps.eu10-005.hana.ondemand.com and click on "Incident Library". Add the file that you just created to the library
+3. Back to the main page to create a new exercise. In the field "Exercise Title" add a title to you exercise with a reference to your identifier/pseudo/name.
+4. Use the information of the GlobalRetail4U company **[Download Client Brief (PDF)](docs/GlobalRetail4U_Client_Profile.pdf)** to fill the "Exercise Parameters". For the "Standard/Guideline" use NIST SP 800-84
+5. In the section "Scenario Description" explain the type of exercise you want, and stick with a **15 minutes**  duration and **only 2 injects**
+6. In the "Real Incident Inspiration" section, select the name of the file thatyou uploaded to your library
+7. Click on Generate exercise and have a drink
 
-**Time guidance per inject: ~5 minutes**
 
-> The facilitator will announce time at the midpoint (inject 4) and at inject 7. If your team is running behind, prioritize discussion over perfect answers — the debrief is where learning happens.
+**Let's spend 5 minutes to compare the different results**
 
-### Phase 3 — Debrief & Report (0:50 – 1:00)
+
+
+### Phase 3 — Evaluate & Report (0:50 – 1:00)
 
 - Click **Generate Security Report** when all injects are submitted
 - Wait for AI to generate your recommendations (~20 seconds)
