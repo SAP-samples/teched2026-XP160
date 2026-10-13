@@ -79,7 +79,7 @@ https://ttxgenai.cfapps.eu10-005.hana.ondemand.com
 
 ### Step 4  — Powerpoint slides
 
-📄 **[Presentation Slides (pptx)](/teched2026-XP160.pptx)**
+📄 **[Presentation Slides (pptx)](docs/teched2026-XP160.pdf)**
 
 ---
 
