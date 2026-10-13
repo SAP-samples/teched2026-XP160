@@ -77,22 +77,7 @@ Open the exercise generator in your browser:
 https://ttxgenai.cfapps.eu10-005.hana.ondemand.com
 ```
 
-> Your facilitator will provide the API key for this session. Enter it in the **API Access** field on the home screen. The key is valid for the duration of the workshop only.
 
-### Step 4 — Configure Your Exercise
-
-On the home screen, set the following parameters for the workshop scenario:
-
-| Field | Value |
-|---|---|
-| **Standard / Guideline** | NIST SP 800-61 |
-| **SAP Context** | SAP BTP (Business Technology Platform) |
-| **Incident Scenario** | Ransomware / Extortion |
-| **Industry** | Retail & E-Commerce |
-| **Exercise Title** | *(enter your team name, e.g. "Team Alpha — XP160 TechEd 2026")* |
-| **Scenario Description** | *(optional — add any specific focus areas from the client brief)* |
-
-Click **Generate Exercise** and wait approximately 30–60 seconds for your tailored exercise to be created.
 
 ---
 
@@ -100,20 +85,19 @@ Click **Generate Exercise** and wait approximately 30–60 seconds for your tail
 
 ```
 ──────────────────────────────────────────────────────────────────────────────
-  0:00        0:10         0:25                    0:50          1:00
+  0:00        0:10         0:40                    0:50          1:00
    │           │            │                       │             │
    ▼           ▼            ▼                       ▼             ▼
-[Briefing] [Generate] [Work Injects] ──────── [Debrief] [Report & Wrap-up]
+[Briefing] [Generate] [Discuss & Report] ──────── [Debrief]   [Wrap-up]
 ```
 
-### Phase 1 — Briefing & Setup (0:00 – 0:10)
+### Phase 1 — Introduction & Demo (0:00 – 0:10)
 
-- Facilitator presents the NORDIC-CERT advisory (10 min)
-- Teams read the client brief
-- Each team configures and generates their exercise in TTXGenAI
-- Confirm the exercise loaded correctly before proceeding
+- Introduction of the TableTop exercise concept 
+- Presentation of the tool
+- Quick Demo on how to use the tool
 
-### Phase 2 — Inject Evaluation (0:10 – 0:50)
+### Phase 2 — Inject Evaluation (0:10 – 0:40)
 
 This is the core exercise phase. Teams work through **8 timed injects**, each representing a decision point in the incident response. For each inject:
 
