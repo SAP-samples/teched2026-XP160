@@ -106,10 +106,15 @@ This is the core exercise phase. Today, you're stepping into the role of a secur
 1. From the security bulletin published by the CERT organisation **[View the NORDIC-CERT Advisory — NorthernStorm Campaign](fakeincident.md)** create a .docx or .txt file containing all the report. Save this file locally and name it with a mention to your identifier/pseudo/name.
 2. Open the tool https://ttxgenai.cfapps.eu10-005.hana.ondemand.com and click on "Incident Library". Add the file that you just created to the library
 3. Back to the main page to create a new exercise. In the field "Exercise Title" add a title to you exercise with a reference to your identifier/pseudo/name.
-4. Use the information of the GlobalRetail4U company **[Download Client Brief (PDF)](docs/GlobalRetail4U_Client_Profile.pdf)** to fill the "Exercise Parameters". For the "Standard/Guideline" use NIST SP 800-84
-5. In the section "Scenario Description" explain the type of exercise you want, and stick with a **15 minutes**  duration and **only 2 injects**
-6. In the "Real Incident Inspiration" section, select the name of the file thatyou uploaded to your library
-7. Click on Generate exercise and have a drink
+4. Use the information of the GlobalRetail4U company **[Download Client Brief](docs/GlobalRetail4U.md)** to fill the "Exercise Parameters". For the "Standard/Guideline" use NIST SP 800-84
+5. In the section "Scenario Description" explain the type of exercise you want, and stick with a **15 minutes**  duration and **only 2 injects** copy this text
+   ```
+   Company Name: GlobalRetail4U
+   Duration: 30 minutes
+   Number of injects: 2
+   ```
+7. In the "Real Incident Inspiration" section, select the name of the file thatyou uploaded to your library
+8. Click on Generate exercise and have a drink
 
 
 **Let's spend 5 minutes to compare the different results**
