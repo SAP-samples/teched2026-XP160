@@ -19,9 +19,9 @@
 ### 🖥️ SAP Landscape
 | **Component** | **Details** |
 |:--------------|:------------|
-| 🔹 **S/4HANA 2021** | 3 years in production |
+| 🔹 **RISE S/4HANA Private** | 3 years in production |
 | 🔹 **SAP Fiori** | User interfaces |
-| 🔹 **SAP Gateway** | Externally accessible |
+| 🔹 **SAP BTP** | Externally accessible |
 | 🔹 **SAP HANA** | Database |
 
 
