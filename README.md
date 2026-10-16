@@ -112,7 +112,8 @@ This is the core exercise phase. Today, you're stepping into the role of a secur
    Company Name: GlobalRetail4U
    Duration: 30 minutes
    Number of injects: 2
-   ```
+   ``` 
+6. In the "Real Incident Inspiration" section, select the name of the file thatyou uploaded to your library
 7. In the "Real Incident Inspiration" section, select the name of the file thatyou uploaded to your library
 8. Click on Generate exercise and have a drink
 
